@@ -1431,7 +1431,7 @@ i965_CreateConfig(VADriverContextP ctx,
         if (attrib_found) {
             uint32_t enc_packed_attribs = i965_get_enc_packed_attributes(ctx, profile, entrypoint);
 
-            if (!(attrib_found->value & enc_packed_attribs))
+            if (attrib_found->value && !(attrib_found->value & enc_packed_attribs))
                 vaStatus = VA_STATUS_ERROR_INVALID_VALUE;
         }
     }
